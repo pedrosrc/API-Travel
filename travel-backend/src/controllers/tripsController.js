@@ -11,8 +11,13 @@ const getOne = async (req, res) => {
 
     const trips = await tripsModel.getAll();
     const id = req.params.id;
+    const object = trips.find(item => item.id === id);
 
-    return res.status(200).json([trips[id]]);
+    if(!object){
+        return res.status(404).json('Object Not Found')
+    }
+
+    return res.status(200).json(object);
 };
 
 module.exports = {
