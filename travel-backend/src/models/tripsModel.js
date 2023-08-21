@@ -5,6 +5,8 @@ const getAll = async() => {
     return trips;
 };
 
+
 module.exports = {
     getAll
+    
 }
